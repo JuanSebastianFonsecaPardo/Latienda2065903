@@ -30,14 +30,14 @@
             <div class="file-field input-filed col s8">
                 <div class="btn">
                     <span><i class="material-icons prefix">file_upload</i></span>
-                    <input type="file" multiple>
+                    <input type="file" multiple class="blue darken-4">
                 </div>
                 <div class="file-path-wrapper">
                     <input class="file-path validate" type="text" placeholder="Imagenes del producto">
                 </div>
             </div>
         </div>
-        <button class="btn waves-effect waves-light" type="submit" name="action">Registrar
+        <button class="btn blue darken-4" type="submit" name="action">Registrar
             <i class="material-icons right">send</i>
         </button>        
     </form>
