@@ -95,3 +95,7 @@ Route::get('Paises', function(){
     return view('paises')
         ->with("Paises", $Paises);
 });
+//Crear rutas 
+Route::get('prueba', function(){
+    return view('productos.new');
+});
