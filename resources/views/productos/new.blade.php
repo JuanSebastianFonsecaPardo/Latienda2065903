@@ -12,7 +12,7 @@
   <h1 class=" blue-text text-darken-2">Registrar Producto</h1>    
 </div>
 <div class="row">
-    <form method="POST" action="{{ route('producto.store') }}" class="col s8">
+    <form method="POST" action="{{ route('producto.store') }}" class="col s8" enctype="multipart/form-data">
         @csrf
         <div class="row">
             <div class="input-field col s8">
@@ -76,11 +76,12 @@
             <div class="file-field input-filed col s8">
                 <div class="btn blue darken-4">
                     <span ><i class="material-icons prefix blue darken-4">file_upload</i></span>
-                    <input type="file" multiple class="blue darken-4">
+                    <input type="file" multiple class="blue darken-4" name="imagen" id="imagen">
                 </div>
                 <div class="file-path-wrapper">
-                    <input class="file-path validate"  name="imagen" id="imagen" type="text" placeholder="Imagenes del producto">
+                    <input class="file-path validate"  type="text" placeholder="Imagenes del producto">
                 </div>
+                <span class=" red-text text-accent-4">{{ $errors->first('imagen') }}</span>
             </div>
         </div>
         <button class="btn blue darken-4" type="submit" name="action">Registrar

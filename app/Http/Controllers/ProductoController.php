@@ -1,13 +1,10 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Models\Marca;
 use App\Models\Categoria;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-
 class ProductoController extends Controller
 {
     /**
@@ -19,7 +16,6 @@ class ProductoController extends Controller
     {
         echo "aqui va a ir el catalogo de productos";
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -38,7 +34,6 @@ class ProductoController extends Controller
                     ->with('categorias' , $categorias);
 
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -47,6 +42,7 @@ class ProductoController extends Controller
      */
     public function store(Request $r)
     {
+        //Analizar la input data de "imagen"
         //1.establecer las reglas de validacion
         // que apliquen a cada campo
         $reglas = [
@@ -54,16 +50,18 @@ class ProductoController extends Controller
             "desc"      => 'required|min:5|max:50',
             "precio"    => 'required|numeric',
             "marca"     => 'required',
-            "categoria" =>  'required'
+            "categoria" => 'required',
+            "imagen"    => 'required|image '
         ];
 
         //mensajes:
         $mensajes = [
-            "required" => "Campo obligatorio",
-            "alpha"    => "Solo letras"      ,
-            "min"      => "Minimo de caracteres es 5",
-            "max"      => "Maximo de caracteres es de 50",
-            "numeric"  => "Solo numeros"
+            "required"  => "Campo obligatorio",
+            "alpha"     => "Solo letras"      ,
+            "min"       => "Minimo de caracteres es 5",
+            "max"       => "Maximo de caracteres es de 50",
+            "numeric"   => "Solo numeros",
+            "image"     => "Solo archivos de imagenes"
         ];
 
         //2. crear el objeto validador
@@ -79,6 +77,17 @@ class ProductoController extends Controller
                 ->withErrors($v)
                 ->withInput();
         }else{
+            //Acceder a propiedades del archivo cargado
+                $archivo = $r->imagen;
+                $nombre_archivo = $archivo->getClientOriginalName();
+            //Establecer la ubicacion donde se almacenara
+            //El archivo
+                $ruta = public_path()."/img/";
+            //mover el archivo
+                $archivo->move( $ruta,
+                                $nombre_archivo 
+                                );
+
             //validacion correcta
             //Crear nuevo producto
             $p = new Producto;
@@ -89,6 +98,7 @@ class ProductoController extends Controller
             $p->precio  = $r->precio;
             $p->marca_id = $r->marca;
             $p->categoria_id = $r->categoria;
+            $p->imagen = $nombre_archivo;
              //guardar en base de datos
             $p->save();
             echo "Producto registrado";
@@ -98,7 +108,6 @@ class ProductoController extends Controller
                 ->with('mensajito', "Producto registrado");
         }
     }
-
     /**
      * Display the specified resource.
      *
@@ -109,7 +118,6 @@ class ProductoController extends Controller
     {
         echo "aqui van los detalles de producto con id: $producto ";
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -120,7 +128,6 @@ class ProductoController extends Controller
     {
         echo "aqui va a ir el formulario para actualizar el prod: $producto";
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -130,7 +137,7 @@ class ProductoController extends Controller
      */
     public function update(Request $request, Producto $producto)
     {
-        //
+          //
     }
 
     /**
