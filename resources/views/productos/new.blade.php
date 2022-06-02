@@ -1,7 +1,5 @@
 @extends('layouts.menu')
 @section('contenido')
-
-@section('contenido')
 @if( session('mensajito'))
 <br><br><br>
     <div class="row">
