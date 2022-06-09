@@ -2687,7 +2687,8 @@ a {
 blockquote {
   margin: 20px 0;
   padding-left: 1.5rem;
-  border-left: 5px solid #ee6e73;
+  border-left: 5px solid #0d47a1 ;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 i {
@@ -3120,7 +3121,8 @@ td, th {
 }
 
 .collection .collection-item.avatar .title {
-  font-size: 16px;
+  font-size: 25px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .collection .collection-item.avatar p {
@@ -3173,7 +3175,7 @@ td, th {
 
 .secondary-content {
   float: right;
-  color: #26a69a;
+  color: #0d47a1;
 }
 
 .collapsible .collection {
@@ -4460,7 +4462,6 @@ nav .input-field label i {
 nav .input-field label.active i {
   color: #fff;
 }
-
 .navbar-fixed {
   position: relative;
   height: 56px;
@@ -4756,6 +4757,7 @@ small {
 .card .card-title {
   font-size: 24px;
   font-weight: 300;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .card .card-title.activator {
@@ -8486,10 +8488,19 @@ input[type=range]::-ms-thumb {
   visibility: visible;
   -webkit-animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
           animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
-  -webkit-transition: opacity .3s, visibility 0s 1s, -webkit-transform .3s;
-  transition: opacity .3s, visibility 0s 1s, -webkit-transform .3s;
-  transition: opacity .3s, transform .3s, visibility 0s 1s;
-  transition: opacity .3s, transform .3s, visibility 0s 1s, -webkit-transform .3s;
+  -webkit-transition: opacity .3s,
+ visibility 0s 1s,
+ -webkit-transform .3s;
+  transition: opacity .3s,
+ visibility 0s 1s,
+ -webkit-transform .3s;
+  transition: opacity .3s,
+ transform .3s,
+ visibility 0s 1s;
+  transition: opacity .3s,
+ transform .3s,
+ visibility 0s 1s,
+ -webkit-transform .3s;
 }
 
 .tap-target {
@@ -8542,10 +8553,19 @@ input[type=range]::-ms-thumb {
 
 .tap-target-wave::after {
   visibility: hidden;
-  -webkit-transition: opacity .3s, visibility 0s, -webkit-transform .3s;
-  transition: opacity .3s, visibility 0s, -webkit-transform .3s;
-  transition: opacity .3s, transform .3s, visibility 0s;
-  transition: opacity .3s, transform .3s, visibility 0s, -webkit-transform .3s;
+  -webkit-transition: opacity .3s,
+ visibility 0s,
+ -webkit-transform .3s;
+  transition: opacity .3s,
+ visibility 0s,
+ -webkit-transform .3s;
+  transition: opacity .3s,
+ transform .3s,
+ visibility 0s;
+  transition: opacity .3s,
+ transform .3s,
+ visibility 0s,
+ -webkit-transform .3s;
   z-index: -1;
 }
 
@@ -9064,4 +9084,10 @@ input[type=range]::-ms-thumb {
     text-align: center;
     margin-top: 1.2rem;
   }
+}
+.h1-sena-prueba{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.menu-principal{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
